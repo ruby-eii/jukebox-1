@@ -23,7 +23,7 @@ describe Jukebox do
         expect(random_song.genre).to eql(selected_genre)
       end
 
-      it "raises an exception if any songs match the criteria" do
+      it "raises an exception if no songs match the criteria" do
         @jukebox.add_money(10)
         expect { @jukebox.random_song_by(:genre, "Merengue") }.to raise_error
       end
@@ -38,7 +38,7 @@ describe Jukebox do
         expect(random_song.year).to eql(selected_year)
       end
 
-      it "raises an exception if any songs match the criteria" do
+      it "raises an exception if no songs match the criteria" do
         expect { @jukebox.random_song_by(:year, 3000) }.to raise_error
       end
     end
