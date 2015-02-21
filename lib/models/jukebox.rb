@@ -56,7 +56,7 @@ class Jukebox
 
   def random_song(available_songs)
     available_songs ||= self.available_songs_by_price
-    raise "Any song matches the critera. Please, select another property or try to add more money" if available_songs.empty?
+    raise "No song matches the critera. Please, select another property or try to add more money" if available_songs.empty?
     available_songs.sample
   end
 
