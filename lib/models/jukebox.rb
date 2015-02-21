@@ -5,7 +5,7 @@
 # The Jukebox offers several methods in order to perform operations within
 # the playlist:
 #
-# 1. play(song_id)
+# 1. play(song)
 # 2. play_random_song_by_genre(genre)
 # 3. play_random_song_by_year(year)
 # 4. play_random_song_by_artist(artist)
