@@ -15,16 +15,18 @@ describe Jukebox do
 
   describe "#random_song_by" do
     context "filtering by genre" do
+      before :each do
+        @jukebox.add_money(10)
+      end
+
       it "returns a random song with the specified genre" do
         selected_genre = @jukebox.songs.first.genre
 
-        @jukebox.add_money(10)
         random_song = @jukebox.random_song_by(:genre, selected_genre)
         expect(random_song.genre).to eql(selected_genre)
       end
 
       it "raises an exception if no songs match the criteria" do
-        @jukebox.add_money(10)
         expect { @jukebox.random_song_by(:genre, "Merengue") }.to raise_error
       end
     end
