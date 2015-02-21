@@ -4,7 +4,7 @@ class Wallet
     @money = opts.fetch(:money) { 0 }
   end
 
-  attr_accessor :money
+  attr_reader :money
 
   def add(quantity)
     raise "Invalid quatity" if quantity < 0
