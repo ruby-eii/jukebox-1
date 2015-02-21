@@ -1,3 +1,3 @@
 # Jukebox (day 1)
 
-This project contains the exercises for the Ruby@EII workshop (day 1).
+This project contains the exercises for the Ruby@Uniovi workshop (day 1).
