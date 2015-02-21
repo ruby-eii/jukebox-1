@@ -6,6 +6,13 @@ describe Jukebox do
     @jukebox = Jukebox.new(songs: songs)
   end
 
+  describe "#credit" do
+    it "returns the current money in the wallet" do
+      @jukebox.add_money(10)
+      expect(@jukebox.credit).to eql (10)
+    end
+  end
+
   describe "#play_song" do
     it "raises an exception when there is not enough money for playing the selected song" do
       selected_song = @jukebox.songs.first

@@ -24,6 +24,10 @@ class Jukebox
     @wallet.add(quantity)
   end
 
+  def credit
+    @wallet.money
+  end
+
   def play(song)
     @wallet.take(song.price)
 
