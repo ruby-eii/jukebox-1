@@ -45,6 +45,25 @@ loop do
       say(jukebox.credit)
     end
 
+    menu.choice("Play random song by artist") do
+      artist = ask("What artist? ", String)
+      jukebox.play_random_song_by_artist(artist)
+    end
+
+    menu.choice("Play random song by genre") do
+      genre = ask("What genre? ", String)
+      jukebox.play_random_song_by_genre(genre)
+    end
+
+    menu.choice("Play random song by year") do
+      year = ask("What year? ", Integer)
+      jukebox.play_random_song_by_year(year)
+    end
+
+    menu.choice("Play random song") do
+      jukebox.play_random_song
+    end
+
     menu.choice("Exit program") { exit }
   end
 end

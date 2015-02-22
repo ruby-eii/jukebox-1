@@ -30,8 +30,7 @@ class Jukebox
 
   def play(song)
     @wallet.take(song.price)
-
-    puts "Playing #{song.name} of #{song.artist}"
+    # TODO play the song
   end
 
   def play_random_song
@@ -58,7 +57,7 @@ class Jukebox
     @songs.select { |song| song.price <= @wallet.money }
   end
 
-  def random_song(available_songs)
+  def random_song(available_songs=nil)
     available_songs ||= self.available_songs_by_price
     raise "No song matches the critera. Please, select another property or try to add more money" if available_songs.empty?
     available_songs.sample

@@ -13,7 +13,7 @@ class Song
     @price  = opts["price"]
   end
 
-  attr_reader :name, :album, :artist, :year, :genre, :length, :price
+  attr_accessor :name, :album, :artist, :year, :genre, :length, :price
 
   def to_s
     "#{@name} | Album: #{@album} (by #{@artist}) | #{@year} | #{@genre} | #{@price}\n"
