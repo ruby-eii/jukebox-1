@@ -15,11 +15,11 @@ songs = raw_songs_collection.map { |attributes| Song.new(attributes) }
 jukebox = Jukebox.new(songs: songs)
 
 say("\n")
-say("* * * * * * * * * * * * *\n")
-say("*                       *\n")
-say("*  Command Line Jukebox *\n")
-say("*                       *\n")
-say("* * * * * * * * * * * * *\n")
+say("**************************\n")
+say("*                        *\n")
+say("*  Command Line Jukebox  *\n")
+say("*                        *\n")
+say("**************************\n")
 
 loop do
   choose do |menu|
