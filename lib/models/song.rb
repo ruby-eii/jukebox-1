@@ -16,7 +16,7 @@ class Song
   attr_accessor :name, :album, :artist, :year, :genre, :length, :price
 
   def to_s
-    "#{@name} | Album: #{@album} (by #{@artist}) | #{@year} | #{@genre} | #{@price}\n"
+    "#{@name} | Album: #{@album} (by #{@artist}) | #{@year} | #{@genre} | #{@price}"
   end
 
 end

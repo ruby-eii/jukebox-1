@@ -33,7 +33,7 @@ loop do
     menu.shell     = true
 
     menu.choice("Show songs") do
-      jukebox.songs.each { |song| say(song.to_s) }
+      jukebox.songs.each { |song| say(song.to_s + "\n") }
     end
 
     menu.choice("Add money") do
