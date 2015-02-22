@@ -1,12 +1,16 @@
 #!/usr/bin/env ruby
 
 require "highline/import"
+require "yaml"
 
 require "./lib/app"
 
-songs = [
-  Song.new({ name: "Let It Be", album: "Let It Be", artist: "The Beatles", genre: "Rock", lenght: 240, price: 2.5 }),
-]
+
+
+SONGS_FILE_PATH = "./data/songs.yml"
+
+raw_songs_collection = YAML.load(File.open(SONGS_FILE_PATH))
+songs = raw_songs_collection.map { |attributes| Song.new(attributes) }
 
 jukebox = Jukebox.new(songs: songs)
 

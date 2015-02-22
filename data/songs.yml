@@ -1,0 +1,18 @@
+- name: "Let It Be"
+  album: "Let It Be"
+  artist: "The Beatles"
+  genre: "Rock"
+  length: 240
+  price: 2.5
+- name: "19 días y 500 noches"
+  album: "19 días y 500 noches"
+  artist: "Joaquín Sabina"
+  genre: "Rock"
+  length: 280
+  price: 2
+- name: "Ring of Fire"
+  album: "Ring of Fire: The Best of Johnny Cash"
+  artist: "Johnny Cash"
+  genre: "Country"
+  length: 150
+  price: 2.5
