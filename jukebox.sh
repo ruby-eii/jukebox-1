@@ -1,11 +1,10 @@
 #!/usr/bin/env ruby
 
+require "formatador"
 require "highline/import"
 require "yaml"
 
 require "./lib/app"
-
-
 
 SONGS_FILE_PATH = "./data/songs.yml"
 
@@ -32,10 +31,6 @@ loop do
     menu.select_by = :index
     menu.shell     = true
 
-    menu.choice("Show songs") do
-      jukebox.songs.each { |song| say(song.to_s + "\n") }
-    end
-
     menu.choice("Add money") do
       money = ask("How much money? ", Float)
       jukebox.add_money(money)
@@ -43,6 +38,11 @@ loop do
 
     menu.choice("Credit?") do
       say(jukebox.credit)
+    end
+
+    menu.choice("Show songs") do
+      table = jukebox.songs.map(&:as_hash)
+      Formatador.display_table(table)
     end
 
     menu.choice("Play random song by artist") do
