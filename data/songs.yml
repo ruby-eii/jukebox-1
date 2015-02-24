@@ -19,3 +19,17 @@
   year: 1963
   length: 150
   price: 2.5
+- name: "Last Goodbye"
+  album: "Grace"
+  artist: "Jeff Buckley"
+  genre: "Rock"
+  year: 1994
+  length: 270
+  price: 3
+- name: "Your Hand in Mine"
+  album: "The Earth Is Not a Cold Dead Place"
+  artist: "Explosions in the Sky"
+  genre: "Post-Rock"
+  year: 2003
+  length: 490
+  price: 2
