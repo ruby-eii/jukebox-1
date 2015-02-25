@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :song do
-    sequence(:name)   { |n| "AmazinSong #{n}" }
+    sequence(:name)   { |n| "AmazingSong #{n}" }
     sequence(:album)  { |n| "AmazingAlbum #{n}" }
     sequence(:artist) { |n| "AmazingArtist #{n}" }
 
