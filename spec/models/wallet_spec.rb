@@ -11,7 +11,7 @@ describe Wallet do
     end
 
     it "initializes the wallet with the money passed by argument" do
-      wallet_with_money = Wallet.new(money: 15)
+      wallet_with_money = Wallet.new(15)
       expect(wallet_with_money.money).to eql(15)
     end
   end
@@ -31,7 +31,7 @@ describe Wallet do
 
   describe "#take_money" do
     it "takes money from the wallet" do
-      wallet_with_money = Wallet.new(money: 30)
+      wallet_with_money = Wallet.new(30)
       wallet_with_money.take(3)
       wallet_with_money.take(5)
 
@@ -39,7 +39,7 @@ describe Wallet do
     end
 
     it "raises an exception when there isn't enough money" do
-      wallet_with_money = Wallet.new(money: 3)
+      wallet_with_money = Wallet.new(3)
       expect { wallet_with_money.take(5) }.to raise_error
     end
   end

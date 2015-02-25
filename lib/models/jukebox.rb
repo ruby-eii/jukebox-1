@@ -13,9 +13,9 @@
 # 6. add_money(quantity)
 class Jukebox
 
-  def initialize(opts={})
-    @songs  = opts.fetch(:songs) { [] }
-    @wallet = opts.fetch(:wallet) { Wallet.new }
+  def initialize(songs, wallet = nil)
+    @songs  = songs
+    @wallet = wallet || Wallet.new 
   end
 
   attr_accessor :songs
