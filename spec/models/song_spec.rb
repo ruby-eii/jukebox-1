@@ -5,6 +5,7 @@ describe Song do
     build(:song)
   }
 
+
   describe "#as_hash" do
     it "returns the Song instance represented as a hash with all its instance variables as keys" do
       expected_keys = ["name", "album", "artist", "genre", "length", "year", "price"]

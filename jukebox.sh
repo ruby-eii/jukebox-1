@@ -8,10 +8,10 @@ require "./lib/app"
 
 SONGS_FILE_PATH = "./data/songs.yml"
 
-raw_songs_collection = YAML.load(File.open(SONGS_FILE_PATH))
+raw_songs_collection = YAML.load(File.open(SONGS_FILE_PATH) )
 songs = raw_songs_collection.map { |attributes| Song.new(attributes) }
 
-jukebox = Jukebox.new(songs: songs)
+jukebox = Jukebox.new(songs)
 
 say("\n")
 say("**************************\n")
@@ -31,6 +31,11 @@ loop do
     menu.select_by = :index
     menu.shell     = true
 
+    menu.choice("Show songs") do
+      table = jukebox.songs.map(&:as_hash)
+      Formatador.display_table(table)
+    end
+
     menu.choice("Add money") do
       money = ask("How much money? ", Float)
       jukebox.add_money(money)
@@ -38,11 +43,6 @@ loop do
 
     menu.choice("Credit?") do
       say(jukebox.credit)
-    end
-
-    menu.choice("Show songs") do
-      table = jukebox.songs.map(&:as_hash)
-      Formatador.display_table(table)
     end
 
     menu.choice("Play random song by artist") do
