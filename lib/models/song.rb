@@ -1,5 +1,12 @@
 class Song
 
+  def self.build_from_hash(opts = {})
+    name   = opts.fetch("name") 
+    album  = opts.fetch("album") 
+    artist = opts.fetch("artist") 
+
+    self.new(name, album, artist, opts)
+  end
 
   def initialize(name, album, artist, opts={})
     @name   = name

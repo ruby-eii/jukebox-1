@@ -9,7 +9,7 @@ require "./lib/app"
 SONGS_FILE_PATH = "./data/songs.yml"
 
 raw_songs_collection = YAML.load(File.open(SONGS_FILE_PATH) )
-songs = raw_songs_collection.map { |attributes| Song.new(attributes) }
+songs = raw_songs_collection.map { |attributes| Song.build_from_hash(attributes) }
 
 jukebox = Jukebox.new(songs)
 
