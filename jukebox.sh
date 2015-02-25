@@ -17,7 +17,7 @@ def safe_operation
   begin
     yield
   rescue RuntimeError => error
-    say "<%= color( 'Oops! #{error.message}', :on_red) %>"
+    say("<%= color( 'Oops! #{error.message}', :on_red) %>")
   end
 end
 
@@ -72,7 +72,10 @@ loop do
       safe_operation { jukebox.play_random_song }
     end
 
-    menu.choice("Exit program") { exit }
+    menu.choice("Exit program") { 
+      say("Bye!")
+      exit 
+    }
   end
 end
 
