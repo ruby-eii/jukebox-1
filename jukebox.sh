@@ -29,7 +29,7 @@ def safe_operation
   begin
     yield
   rescue RuntimeError => error
-    say("<%= color( 'Oops! #{error.message}', :on_red) %>")
+    say("<%= color( \"Oops! #{error.message}\", :on_red) %>")
   end
 end
 
