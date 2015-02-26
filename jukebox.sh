@@ -6,12 +6,24 @@ require "yaml"
 
 require "./lib/app"
 
+
+
+###########################
+# Some setup...
+###########################
+
 SONGS_FILE_PATH = "./data/songs.yml"
 
 raw_songs_collection = YAML.load(File.open(SONGS_FILE_PATH) )
 songs = raw_songs_collection.map { |attributes| Song.build_from_hash(attributes) }
 
 jukebox = Jukebox.new(songs)
+
+
+
+###########################
+# Utility methods
+###########################
 
 def safe_operation
   begin
@@ -21,9 +33,21 @@ def safe_operation
   end
 end
 
+def print_custom_header(jukebox)
+  @songs_table ||= jukebox.songs.map(&:as_hash)
+  Formatador.display_table(@songs_table, ["name", "artist", "album", "price"])
+
+  say("\tCREDIT: #{jukebox.credit} €")
+end
+
+
+
+###########################
+# Jukebox CLI starts here
+###########################
+
 loop do
-  songs_table = jukebox.songs.map(&:as_hash)
-  Formatador.display_table(songs_table, ["name", "artist", "album", "price"])
+  print_custom_header(jukebox)
 
   choose do |menu|
     menu.prompt    = "Select an option:"
@@ -38,10 +62,6 @@ loop do
     menu.choice("Add money") do
       money = ask("How much money? ", Float)
       safe_operation { jukebox.add_money(money) }
-    end
-
-    menu.choice("Credit?") do
-      say(jukebox.credit)
     end
 
     menu.choice("Play random song by artist") do
