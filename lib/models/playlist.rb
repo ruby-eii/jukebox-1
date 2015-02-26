@@ -23,4 +23,8 @@ class Playlist
     candidates = @songs.select { |song| song.send(attribute) == value }
     candidates.sample
   end
+
+  def as_hash
+    @songs.map(&:as_hash)
+  end
 end

@@ -34,7 +34,7 @@ def safe_operation
 end
 
 def print_custom_header(jukebox)
-  @songs_table ||= jukebox.songs.map(&:as_hash)
+  @songs_table ||= jukebox.playlist.as_hash
   Formatador.display_table(@songs_table, ["name", "artist", "album", "price"])
 
   say("\tCREDIT: #{jukebox.credit} €")
