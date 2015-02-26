@@ -46,7 +46,7 @@ loop do
 
     menu.choice("Add money") do
       money = ask("How much money? ", Float)
-      jukebox.add_money(money)
+      safe_operation { jukebox.add_money(money) }
     end
 
     menu.choice("Credit?") do
