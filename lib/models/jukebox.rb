@@ -14,11 +14,11 @@
 class Jukebox
 
   def initialize(songs, wallet = nil)
-    @songs  = songs
-    @wallet = wallet || Wallet.new 
+    @playlist = Playlist.new(songs)
+    @wallet = wallet || Wallet.new
   end
 
-  attr_accessor :songs
+  attr_reader :playlist
 
   def add_money(quantity)
     @wallet.add(quantity)
@@ -34,37 +34,22 @@ class Jukebox
   end
 
   def play_random_song
-    random_song = self.random_song
+    random_song = @playlist.select_random_song
     play(random_song)
   end
 
   def play_random_song_by_genre(genre)
-    random_song = self.random_song_by(:genre, genre)
+    random_song = @playlist.select_random_song_by_genre(genre)
     play(random_song)
   end
 
   def play_random_song_by_year(year)
-    random_song = self.random_song_by(:year, year)
+    random_song = @playlist.select_random_song_by_year(year)
     play(random_song)
   end
 
   def play_random_song_by_artist(artist)
-    random_song = self.random_song_by(:artist, artist)
+    random_song = @playlist.select_random_song_by_artist(artist)
     play(random_song)
-  end
-
-  def available_songs_by_price
-    @songs.select { |song| song.price <= @wallet.money }
-  end
-
-  def random_song(available_songs=nil)
-    available_songs ||= self.available_songs_by_price
-    raise "No song matches the critera. Please, select another property or try to add more money" if available_songs.empty?
-    available_songs.sample
-  end
-
-  def random_song_by(attribute, value)
-    available_songs = self.available_songs_by_price.select { |song| song.send(attribute) == value }
-    self.random_song(available_songs)
   end
 end
