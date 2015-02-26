@@ -64,11 +64,11 @@ describe Playlist do
 
     describe "#select_random_song_by_genre" do
       it "returns a song with the specified genre" do
-        song = build(:song, :genre => "Blues")
+        song = build(:song, :genre => "A really strange genre")
         song_collection = @songs + [ song ]
 
         playlist = Playlist.new(song_collection)
-        result   = playlist.select_random_song_by_genre("Blues")
+        result   = playlist.select_random_song_by_genre("A really strange genre")
 
         expect(result).to eql song
       end
