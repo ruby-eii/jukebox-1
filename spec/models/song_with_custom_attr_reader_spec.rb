@@ -2,8 +2,8 @@ require "./spec/spec_helper"
 
 describe SongWithCustomAttrReader do
   let(:song){
-    SongWithCustomAttrReader.new( 
-                                 "Great Balls of Fire", 
+    SongWithCustomAttrReader.new(
+                                 "Great Balls of Fire",
                                  "Single Great Ball of Fire",
                                  "Jerry Lee Lewis",
                                  :genre => "Rockabilly",

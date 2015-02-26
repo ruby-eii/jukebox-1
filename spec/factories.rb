@@ -9,14 +9,14 @@ FactoryGirl.define do
     length Random.rand(90..240)
     price  Random.rand(2.0..5.0)
 
-    initialize_with { 
-      new(name, album, artist,  
+    initialize_with {
+      new(name, album, artist,
        "genre" =>  genre,
        "year" => year,
        "length" => length,
        "price" => price
       )
     }
-     
+
   end
 end

@@ -72,9 +72,9 @@ loop do
       safe_operation { jukebox.play_random_song }
     end
 
-    menu.choice("Exit program") { 
+    menu.choice("Exit program") {
       say("Bye!")
-      exit 
+      exit
     }
   end
 end
