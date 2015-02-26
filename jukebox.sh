@@ -21,14 +21,10 @@ def safe_operation
   end
 end
 
-say("\n")
-say("**************************\n")
-say("*                        *\n")
-say("*  Command Line Jukebox  *\n")
-say("*                        *\n")
-say("**************************\n")
-
 loop do
+  songs_table = jukebox.songs.map(&:as_hash)
+  Formatador.display_table(songs_table, ["name", "artist", "album", "price"])
+
   choose do |menu|
     menu.prompt    = "Select an option:"
     menu.layout    = '<%= "\n" %>' +
@@ -38,11 +34,6 @@ loop do
 
     menu.select_by = :index
     menu.shell     = true
-
-    menu.choice("Show songs") do
-      table = jukebox.songs.map(&:as_hash)
-      Formatador.display_table(table)
-    end
 
     menu.choice("Add money") do
       money = ask("How much money? ", Float)
