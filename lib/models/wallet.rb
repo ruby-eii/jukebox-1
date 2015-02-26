@@ -7,7 +7,7 @@ class Wallet
   attr_reader :money
 
   def add(quantity)
-    raise "Invalid quatity" if quantity < 0
+    raise "Invalid quantity" if quantity < 0
     @money += quantity
   end
 
