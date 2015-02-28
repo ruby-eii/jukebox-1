@@ -1,18 +1,19 @@
 class SongWithCustomAttrReader
 
-  def initialize(name, album, artist, opts={})
+  def initialize(name, album, artist, price, opts={})
     @name   = name
     @album  = album
     @artist = artist
+    @price  = price
+
     @genre  = opts["genre"]
     @year   = opts["year"]
     @length = opts["length"]
-    @price  = opts["price"]
   end
 
   def method_missing(method, *args, &b)
     attr_match = method.to_s.match( /get_(.*)/ )
-    if attr_match 
+    if attr_match
       instance_eval("@" + attr_match[1])
     else
       # Educational purposes, better call super

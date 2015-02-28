@@ -8,10 +8,11 @@ describe Song do
   describe ".build_from_hash" do
     let(:song){
       Song.build_from_hash(
-        "name" => "Everlong",
+        "name"   => "Everlong",
         "artist" => "Foo Fighters",
-        "album" => "The Colour and the Shape",
-        "genre" => "Rock"
+        "album"  => "The Colour and the Shape",
+        "genre"  => "Rock",
+        "price"  => 2.5
       )
     }
 

@@ -10,11 +10,10 @@ FactoryGirl.define do
     price  Random.rand(2.0..5.0)
 
     initialize_with {
-      new(name, album, artist,
+      new(name, album, artist, price,
        "genre" =>  genre,
        "year" => year,
-       "length" => length,
-       "price" => price
+       "length" => length
       )
     }
 

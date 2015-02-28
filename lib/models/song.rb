@@ -4,18 +4,20 @@ class Song
     name   = opts.fetch("name")
     album  = opts.fetch("album")
     artist = opts.fetch("artist")
+    price  = opts.fetch("price")
 
-    self.new(name, album, artist, opts)
+    self.new(name, album, artist, price, opts)
   end
 
-  def initialize(name, album, artist, opts={})
+  def initialize(name, album, artist, price, opts={})
     @name   = name
     @album  = album
     @artist = artist
+    @price  = price
+
     @genre  = opts["genre"]
     @year   = opts["year"]
     @length = opts["length"]
-    @price  = opts["price"]
   end
 
   attr_accessor :name, :album, :artist, :year, :genre, :length, :price
