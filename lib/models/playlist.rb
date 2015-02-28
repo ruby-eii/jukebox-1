@@ -1,4 +1,6 @@
 class Playlist
+  include Enumerable
+
   def initialize(songs)
     @songs = songs
   end
@@ -33,11 +35,15 @@ class Playlist
   end
 
   def select_random_song_by(attribute, value)
-    candidates = @songs.select { |song| song.send(attribute) == value }
+    candidates = self.select { |song| song.send(attribute) == value }
     self.select_random_song(candidates)
   end
 
   def as_hash
     @songs.map(&:as_hash)
+  end
+
+  def each(&b)
+    @songs.each {|song| b.call(song)}
   end
 end
