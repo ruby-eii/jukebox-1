@@ -12,7 +12,7 @@ class Player
       while true do
         song = queue.shift
         @stopped = !!song
-        Kernel.sleep(song.duration) if(song)
+        Kernel.sleep(song.length) if(song)
       end
     end
   end

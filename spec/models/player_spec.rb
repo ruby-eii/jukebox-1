@@ -4,6 +4,9 @@ describe Player do
   describe "#play" do
     let(:song1) { Song.new("S000", "Mind your manners", "Lightning Bolt", "Pearl Jam", :duration => 200) }
     let(:song2) { Song.new("S001", "Even Flow", "Ten", "Pearl Jam", :duration => 100) }
+    let(:fast_song1) { Song.new("S002", "Strutter", "Greatest Hits", "Kiss", 1, "length" => 0.1) }
+    let(:fast_song2) { Song.new("S003", "Rock'n'roll all Nite", "Greatest Hits", "Kiss", 1, "length" => 0.1) }
+
     it "should take a song from the queue" do
       queue = []
       Player.new(queue)
@@ -21,6 +24,23 @@ describe Player do
       queue.push(song2)
       Kernel.sleep(0.1)
       expect(queue).to eql([song2])
+    end
+
+    it "should take a song until the last one is ended" do
+      queue = []
+      Player.new(queue)
+
+      queue.push(fast_song1)
+      queue.push(fast_song2)
+      Kernel.sleep(0.3)
+      expect(queue).to be_empty
+    end
+
+    it "shouldn't fail if the queue is empty" do
+      expect {
+        Player.new([])
+        Kernel.sleep(0.1)
+      }.not_to raise_error
     end
   end
 end
