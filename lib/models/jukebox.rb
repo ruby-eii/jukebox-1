@@ -29,8 +29,10 @@ class Jukebox
   end
 
   def play(song)
-    @wallet.take(song.price)
     # TODO play the song
+    song.tap do |song|
+      @wallet.take(song.price)
+    end
   end
 
   def play_random_song

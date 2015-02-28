@@ -40,6 +40,14 @@ def print_custom_header(jukebox)
   say("\tCREDIT: #{jukebox.credit} €")
 end
 
+def print_playing_song(song)
+  return if song.nil?
+
+  say("\n")
+  say("<%= color( \"Playing: #{song.name} by #{song.artist}\", :green) %>")
+  say("\n")
+end
+
 
 
 ###########################
@@ -66,21 +74,33 @@ loop do
 
     menu.choice("Play random song by artist") do
       artist = ask("What artist? ", String)
-      safe_operation { jukebox.play_random_song_by_artist(artist) }
+      safe_operation do
+        song = jukebox.play_random_song_by_artist(artist)
+        print_playing_song(song)
+      end
     end
 
     menu.choice("Play random song by genre") do
       genre = ask("What genre? ", String)
-      safe_operation { jukebox.play_random_song_by_genre(genre) }
+      safe_operation do
+        song = jukebox.play_random_song_by_genre(genre)
+        print_playing_song(song)
+      end
     end
 
     menu.choice("Play random song by year") do
       year = ask("What year? ", Integer)
-      safe_operation { jukebox.play_random_song_by_year(year) }
+      safe_operation do
+        song = jukebox.play_random_song_by_year(year)
+        print_playing_song(song)
+      end
     end
 
     menu.choice("Play random song") do
-      safe_operation { jukebox.play_random_song }
+      safe_operation do
+        song = jukebox.play_random_song
+        print_playing_song(song)
+      end
     end
 
     menu.choice("Exit program") {
