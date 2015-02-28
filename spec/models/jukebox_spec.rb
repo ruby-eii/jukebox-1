@@ -19,10 +19,10 @@ describe Jukebox do
     end
   end
 
-  describe "#play_song" do
+  describe "#play" do
     it "raises an exception when there is not enough money for playing the selected song" do
       selected_song = @jukebox.playlist.select_random_song
-      expect { @jukebox.play_song(selected_song, 0) }.to raise_error
+      expect { @jukebox.play(selected_song, 0) }.to raise_error
     end
   end
 end
