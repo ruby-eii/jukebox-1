@@ -22,6 +22,8 @@ class Song
 
   attr_accessor :name, :album, :artist, :year, :genre, :length, :price
 
+  # It doesn't need to be so complex. This is just for showing once again how powerful is
+  # the Ruby's metaprogramming support
   def as_hash
     {}.tap do |hash|
       self.instance_variables.each do |instance_variable|
