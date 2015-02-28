@@ -16,19 +16,19 @@ describe Song do
       )
     }
 
-    it "should assign name" do
+    it "should have name" do
       expect(song.name).to eql("Everlong")
     end
 
-    it "should assign album" do
+    it "should have album" do
       expect(song.album).to eql("The Colour and the Shape")
     end
 
-    it "should assign artist" do
+    it "should have artist" do
       expect(song.artist).to eql("Foo Fighters")
     end
 
-    it "should assign genre" do
+    it "should have genre" do
       expect(song.genre).to eql("Rock")
     end
   end
