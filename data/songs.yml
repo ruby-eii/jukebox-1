@@ -1,4 +1,4 @@
-- id: "S000",
+- id: "S000"
   name: "Let It Be"
   album: "Let It Be"
   artist: "The Beatles"
@@ -6,7 +6,7 @@
   year: 1970
   length: 240
   price: 2.5
-- id: "S001",
+- id: "S001"
   name: "19 días y 500 noches"
   album: "19 días y 500 noches"
   artist: "Joaquín Sabina"
@@ -14,7 +14,7 @@
   year: 1999
   length: 280
   price: 2
-- id: "S002",
+- id: "S002"
   name: "Ring of Fire"
   album: "Ring of Fire: The Best of Johnny Cash"
   artist: "Johnny Cash"
@@ -22,7 +22,7 @@
   year: 1963
   length: 150
   price: 2.5
-- id: "S003",
+- id: "S003"
   name: "Last Goodbye"
   album: "Grace"
   artist: "Jeff Buckley"
@@ -30,7 +30,7 @@
   year: 1994
   length: 270
   price: 3
-- id: "S004",
+- id: "S004"
   name: "Your Hand in Mine"
   album: "The Earth Is Not a Cold Dead Place"
   artist: "Explosions in the Sky"
