@@ -3,6 +3,13 @@ class Playlist
     @songs = songs
   end
 
+  def select_song_by_id(song_id)
+    selected_song = @songs.find { |song| song.id == song_id }
+    selected_song.tap do |song|
+      raise RuntimeError.new("There isn't any song for the selected ID") if song.nil?
+    end
+  end
+
   def select_random_song(candidates=nil)
     candidates = candidates || @songs
 

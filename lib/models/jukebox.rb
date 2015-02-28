@@ -34,6 +34,11 @@ class Jukebox
     end
   end
 
+  def play_selected_song_by_id(song_id)
+    selected_song = @playlist.select_song_by_id(song_id)
+    play(selected_song)
+  end
+
   def play_random_song
     random_song = @playlist.select_random_song
     play(random_song)

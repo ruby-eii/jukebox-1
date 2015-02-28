@@ -2,6 +2,25 @@ require "./spec/spec_helper"
 
 describe Playlist do
 
+  describe "#select_song_by_id" do
+    it "returns the song which matches the selected id" do
+      songs_collection = build_list(:song, 25)
+      playlist = Playlist.new(songs_collection)
+
+      expected_song = songs_collection[5]
+      returned_song = playlist.select_song_by_id(expected_song.id)
+
+      expect(returned_song).to eql expected_song
+    end
+
+    it "raises an exception when no song has the selected ID" do
+      songs_collection = build_list(:song, 25)
+      playlist = Playlist.new(songs_collection)
+
+      expect { playlist.select_song_by_id("This ID doesn't exist") }.to raise_error
+    end
+  end
+
   describe "#select_random_song" do
     it "returns a Song instance" do
       songs_collection = build_list(:song, 25)

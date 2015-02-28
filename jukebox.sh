@@ -35,7 +35,7 @@ end
 
 def print_custom_header(jukebox)
   @songs_table ||= jukebox.playlist.as_hash
-  Formatador.display_table(@songs_table, ["name", "artist", "album", "price"])
+  Formatador.display_table(@songs_table, ["id", "name", "artist", "album", "price"])
 
   say("\tCREDIT: #{jukebox.credit} €")
 end
@@ -68,6 +68,14 @@ loop do
     menu.choice("Add money") do
       money = ask("How much money? ", Float)
       safe_operation { jukebox.add_money(money) }
+    end
+
+    menu.choice("Play a song selected by ID") do
+      song_id = ask("What song do you want to play?", String)
+      safe_operation do
+        song = jukebox.play_selected_song_by_id(song_id)
+        print_playing_song(song)
+      end
     end
 
     menu.choice("Play random song by artist") do
