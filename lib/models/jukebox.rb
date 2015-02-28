@@ -13,7 +13,7 @@
 # 6. add_money(quantity)
 class Jukebox
 
-  def initialize(songs, wallet = nil)
+  def initialize(songs, wallet=nil)
     @playlist = Playlist.new(songs)
     @wallet = wallet || Wallet.new
   end
@@ -29,9 +29,8 @@ class Jukebox
   end
 
   def play(song)
-    # TODO play the song
-    song.tap do |song|
-      @wallet.take(song.price)
+    song.tap do |s|
+      @wallet.take(s.price)
     end
   end
 

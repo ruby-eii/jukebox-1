@@ -14,8 +14,7 @@ describe Playlist do
     it "returns nil when there are not available songs" do
       playlist = Playlist.new([])
 
-      result = playlist.select_random_song
-      expect(result).to be_nil
+      expect { playlist.select_random_song }.to raise_error
     end
   end
 
@@ -38,8 +37,7 @@ describe Playlist do
       it "doesn't return any song if there isn't any song for the specified artist" do
         playlist = Playlist.new(@songs)
 
-        result = playlist.select_random_song_by_artist("Johnny Cash")
-        expect(result).to be_nil
+        expect { playlist.select_random_song_by_artist("Johnny Cash") }.to raise_error
       end
     end
 
@@ -57,8 +55,7 @@ describe Playlist do
       it "doesn't return any song if there isn't any song for the specified year" do
         playlist = Playlist.new(@songs)
 
-        result = playlist.select_random_song_by_year(9999)
-        expect(result).to be_nil
+        expect { playlist.select_random_song_by_year(9999) }.to raise_error
       end
     end
 
@@ -76,8 +73,7 @@ describe Playlist do
       it "doesn't return any song if there isn't any song for the specified genre" do
         playlist = Playlist.new(@songs)
 
-        result = playlist.select_random_song_by_genre("This genre does not exist")
-        expect(result).to be_nil
+        expect { playlist.select_random_song_by_genre("This genre does not exist") }.to raise_error
       end
     end
   end

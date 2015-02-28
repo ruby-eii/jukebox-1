@@ -3,8 +3,14 @@ class Playlist
     @songs = songs
   end
 
-  def select_random_song
-    @songs.sample
+  def select_random_song(candidates=nil)
+    candidates = candidates || @songs
+
+    if candidates.empty?
+      raise RuntimeError.new("There isn't any song that matches the criteria")
+    else
+      candidates.sample
+    end
   end
 
   def select_random_song_by_artist(artist)
@@ -21,7 +27,7 @@ class Playlist
 
   def select_random_song_by(attribute, value)
     candidates = @songs.select { |song| song.send(attribute) == value }
-    candidates.sample
+    self.select_random_song(candidates)
   end
 
   def as_hash
