@@ -44,6 +44,6 @@ class Playlist
   end
 
   def each(&b)
-    @songs.each {|song| b.call(song)}
+    @songs.each { |song| b.call(song) }
   end
 end
