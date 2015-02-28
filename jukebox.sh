@@ -41,8 +41,6 @@ def print_custom_header(jukebox)
 end
 
 def print_playing_song(song)
-  return if song.nil?
-
   say("\n")
   say("<%= color( \"Playing: #{song.name} by #{song.artist}\", :green) %>")
   say("\n")
