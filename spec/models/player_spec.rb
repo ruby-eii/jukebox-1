@@ -29,8 +29,15 @@ describe Player do
       p = Player.new(queue)
       queue.push(fast_song1)
       queue.push(fast_song2)
-      Kernel.sleep(1)
+      Kernel.sleep(0.3)
       expect(queue).to be_empty
+    end
+
+    it "shouldn't fail if the queue is empty" do
+      expect {
+        p = Player.new([])
+        Kernel.sleep(0.1)
+      }.not_to raise_error
     end
   end
 end
