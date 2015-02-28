@@ -1,15 +1,17 @@
 class Song
 
   def self.build_from_hash(opts={})
+    id     = opts.fetch("id")
     name   = opts.fetch("name")
     album  = opts.fetch("album")
     artist = opts.fetch("artist")
     price  = opts.fetch("price")
 
-    self.new(name, album, artist, price, opts)
+    self.new(id, name, album, artist, price, opts)
   end
 
-  def initialize(name, album, artist, price, opts={})
+  def initialize(id, name, album, artist, price, opts={})
+    @id     = id
     @name   = name
     @album  = album
     @artist = artist
@@ -20,7 +22,7 @@ class Song
     @length = opts["length"]
   end
 
-  attr_accessor :name, :album, :artist, :year, :genre, :length, :price
+  attr_accessor :id, :name, :album, :artist, :year, :genre, :length, :price
 
   # It doesn't need to be so complex. This is just for showing once again how powerful is
   # the Ruby's metaprogramming support

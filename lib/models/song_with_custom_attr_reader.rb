@@ -1,6 +1,7 @@
 class SongWithCustomAttrReader
 
-  def initialize(name, album, artist, price, opts={})
+  def initialize(id, name, album, artist, price, opts={})
+    @id     = id
     @name   = name
     @album  = album
     @artist = artist

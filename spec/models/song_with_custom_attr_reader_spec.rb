@@ -3,7 +3,7 @@ require "./spec/spec_helper"
 describe SongWithCustomAttrReader do
   let(:song){
     options = { genre: "Rockabilly", year: 1957, length: 110 }
-    SongWithCustomAttrReader.new("Great Balls of Fire", "Single Great Ball of Fire", "Jerry Lee Lewis", 2.0, options)
+    SongWithCustomAttrReader.new("S001", "Great Balls of Fire", "Single Great Ball of Fire", "Jerry Lee Lewis", 2.0, options)
   }
 
   describe "#method_missing" do

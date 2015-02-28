@@ -1,5 +1,6 @@
 FactoryGirl.define do
   factory :song do
+    sequence(:id)     { |n| "S#{n}" }
     sequence(:name)   { |n| "AmazingSong #{n}" }
     sequence(:album)  { |n| "AmazingAlbum #{n}" }
     sequence(:artist) { |n| "AmazingArtist #{n}" }
@@ -10,7 +11,7 @@ FactoryGirl.define do
     price  Random.rand(2.0..5.0)
 
     initialize_with {
-      new(name, album, artist, price,
+      new(id, name, album, artist, price,
        "genre" =>  genre,
        "year" => year,
        "length" => length

@@ -8,6 +8,7 @@ describe Song do
   describe ".build_from_hash" do
     let(:song){
       Song.build_from_hash(
+        "id"     => "S001",
         "name"   => "Everlong",
         "artist" => "Foo Fighters",
         "album"  => "The Colour and the Shape",
@@ -35,7 +36,7 @@ describe Song do
 
   describe "#as_hash" do
     it "returns the Song instance represented as a hash with all its instance variables as keys" do
-      expected_keys = ["name", "album", "artist", "genre", "length", "year", "price"]
+      expected_keys = ["id", "name", "album", "artist", "genre", "length", "year", "price"]
       expect(song.as_hash.keys).to match_array(expected_keys)
     end
 
