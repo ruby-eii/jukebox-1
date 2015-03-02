@@ -21,7 +21,7 @@ describe Jukebox do
 
   describe "#play" do
     it "raises an exception when there is not enough money for playing the selected song" do
-      selected_song = @jukebox.playlist.select_random_song
+      selected_song = @jukebox.library.select_random_song
       expect { @jukebox.play(selected_song, 0) }.to raise_error
     end
   end

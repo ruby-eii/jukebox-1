@@ -3,7 +3,7 @@
 # Each song has a related name, price, album, genre, artist, year and length.
 #
 # The Jukebox offers several methods in order to perform operations within
-# the playlist:
+# the library:
 #
 # 1. play(song)
 # 2. play_random_song_by_genre(genre)
@@ -14,13 +14,13 @@
 class Jukebox
 
   def initialize(songs, wallet=nil)
-    @playlist = Playlist.new(songs)
+    @library = Library.new(songs)
     @wallet = wallet || Wallet.new
     @queue = SongQueue.new
     @player = Player.new(@queue)
   end
 
-  attr_reader :playlist, :player
+  attr_reader :library, :player
 
   def add_money(quantity)
     @wallet.add(quantity)
@@ -42,27 +42,27 @@ class Jukebox
   end
 
   def play_selected_song_by_id(song_id)
-    selected_song = @playlist.select_song_by_id(song_id)
+    selected_song = @library.select_song_by_id(song_id)
     play(selected_song)
   end
 
   def play_random_song
-    random_song = @playlist.select_random_song
+    random_song = @library.select_random_song
     play(random_song)
   end
 
   def play_random_song_by_genre(genre)
-    random_song = @playlist.select_random_song_by_genre(genre)
+    random_song = @library.select_random_song_by_genre(genre)
     play(random_song)
   end
 
   def play_random_song_by_year(year)
-    random_song = @playlist.select_random_song_by_year(year)
+    random_song = @library.select_random_song_by_year(year)
     play(random_song)
   end
 
   def play_random_song_by_artist(artist)
-    random_song = @playlist.select_random_song_by_artist(artist)
+    random_song = @library.select_random_song_by_artist(artist)
     play(random_song)
   end
 end

@@ -1,7 +1,7 @@
 require "./lib/models/song"
 require "./lib/models/song_with_custom_attr_reader"
 require "./lib/models/wallet"
-require "./lib/models/playlist"
+require "./lib/models/library"
 require "./lib/models/jukebox"
 require "./lib/models/song_queue"
 require "./lib/models/player"
