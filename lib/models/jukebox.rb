@@ -36,7 +36,7 @@ class Jukebox
   def play(song)
     song.tap do |s|
       @wallet.take(s.price)
-      @queue.queue_song(s)
+      @queue.push(s)
     end
   end
 

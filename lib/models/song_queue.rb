@@ -4,7 +4,7 @@ class SongQueue
     @player = Player.new(@queue)
   end
 
-  def queue_song(song)
+  def push(song)
     @queue.push(song)
   end
 
