@@ -16,7 +16,7 @@ class Jukebox
   def initialize(songs, wallet=nil)
     @playlist = Playlist.new(songs)
     @wallet = wallet || Wallet.new
-    @queue = QueueList.new
+    @queue = SongQueue.new
     @player = Player.new(@queue)
   end
 
