@@ -62,11 +62,11 @@ describe Library do
 
     describe "#select_random_song_by_year" do
       it "returns a song with the specified year" do
-        song = build(:song, :year => 1995)
+        song = build(:song, :year => 8888)
         song_collection = @songs + [ song ]
 
         playlist = Library.new(song_collection)
-        result   = playlist.select_random_song_by_year(1995)
+        result   = playlist.select_random_song_by_year(8888)
 
         expect(result).to eql song
       end
