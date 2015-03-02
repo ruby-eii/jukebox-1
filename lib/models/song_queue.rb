@@ -1,5 +1,5 @@
 class SongQueue
-  def initialize()
+  def initialize
     @queue  = []
     @player = Player.new(@queue)
   end

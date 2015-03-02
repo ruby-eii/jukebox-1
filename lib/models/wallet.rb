@@ -1,6 +1,6 @@
 class Wallet
 
-  def initialize(money = 0)
+  def initialize(money=0)
     @money = money
   end
 
