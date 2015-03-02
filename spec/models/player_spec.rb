@@ -1,7 +1,7 @@
 require "./spec/spec_helper"
 
 describe Player do
-  let(:song) { build(:song) }
+  let(:song) { build(:song, :length => 1) }
 
   describe "#play" do
     before :each do
