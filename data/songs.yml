@@ -4,7 +4,7 @@
   artist: "The Beatles"
   genre: "Rock"
   year: 1970
-  length: 240
+  length: 2
   price: 2.5
 - id: "S001"
   name: "19 días y 500 noches"
@@ -12,7 +12,7 @@
   artist: "Joaquín Sabina"
   genre: "Rock"
   year: 1999
-  length: 280
+  length: 3
   price: 2
 - id: "S002"
   name: "Ring of Fire"
@@ -20,7 +20,7 @@
   artist: "Johnny Cash"
   genre: "Country"
   year: 1963
-  length: 150
+  length: 4
   price: 2.5
 - id: "S003"
   name: "Last Goodbye"
@@ -28,7 +28,7 @@
   artist: "Jeff Buckley"
   genre: "Rock"
   year: 1994
-  length: 270
+  length: 4
   price: 3
 - id: "S004"
   name: "Your Hand in Mine"
@@ -36,5 +36,5 @@
   artist: "Explosions in the Sky"
   genre: "Post-Rock"
   year: 2003
-  length: 490
+  length: 6
   price: 2

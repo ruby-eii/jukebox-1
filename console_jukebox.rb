@@ -40,10 +40,20 @@ def print_custom_header(jukebox)
   say("\tCREDIT: #{jukebox.credit} €")
 end
 
-def print_playing_song(song)
+def print_playing_song(song, jukebox)
   say("\n")
-  say("<%= color( \"Playing: #{song.name} by #{song.artist}\", :green) %>")
+  say("<%= color( \"Added song: #{song.name} by #{song.artist}\", :green) %>")
   say("\n")
+
+  print_now_playing(jukebox)
+end
+
+def print_now_playing(jukebox)
+  unless jukebox.now_playing.nil?
+    say("\n")
+    say("<%= color( \"Now playing... #{jukebox.now_playing.name} by #{jukebox.now_playing.artist}\", :yellow) %>")
+    say("\n")
+  end
 end
 
 
@@ -70,11 +80,15 @@ loop do
       safe_operation { jukebox.add_money(money) }
     end
 
+    menu.choice("Now playing") do
+      print_now_playing(jukebox)
+    end
+
     menu.choice("Play a song selected by ID") do
       song_id = ask("What song do you want to play?", String)
       safe_operation do
         song = jukebox.play_selected_song_by_id(song_id)
-        print_playing_song(song)
+        print_playing_song(song, jukebox)
       end
     end
 
@@ -82,7 +96,7 @@ loop do
       artist = ask("What artist? ", String)
       safe_operation do
         song = jukebox.play_random_song_by_artist(artist)
-        print_playing_song(song)
+        print_playing_song(song, jukebox)
       end
     end
 
@@ -90,7 +104,7 @@ loop do
       genre = ask("What genre? ", String)
       safe_operation do
         song = jukebox.play_random_song_by_genre(genre)
-        print_playing_song(song)
+        print_playing_song(song, jukebox)
       end
     end
 
@@ -98,14 +112,14 @@ loop do
       year = ask("What year? ", Integer)
       safe_operation do
         song = jukebox.play_random_song_by_year(year)
-        print_playing_song(song)
+        print_playing_song(song, jukebox)
       end
     end
 
     menu.choice("Play random song") do
       safe_operation do
         song = jukebox.play_random_song
-        print_playing_song(song)
+        print_playing_song(song, jukebox)
       end
     end
 
