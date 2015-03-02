@@ -46,13 +46,6 @@ def print_playing_song(song)
   say("\n")
 end
 
-def print_now_playing_song(jukebox)
-  song = jukebox.now_playing
-  say "NOW PLAYING " + song.inspect
-  return unless song
-  print_playing_song(song)
-end
-
 
 
 ###########################
@@ -61,7 +54,6 @@ end
 
 loop do
   print_custom_header(jukebox)
-  print_now_playing_song(jukebox)
 
   choose do |menu|
     menu.prompt    = "Select an option:"
