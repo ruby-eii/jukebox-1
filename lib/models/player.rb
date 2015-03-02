@@ -9,11 +9,15 @@ class Player
   end
 
   def play(queue)
-    @thread = Thread.new() do
+    @thread = Thread.new do
       while true do
         song = queue.shift
-        Thread.current[:now_playing] = song if(song)
-        Kernel.sleep(song.length) if(song)
+
+        unless song.nil?
+          Thread.current[:now_playing] = song
+          Kernel.sleep(song.length)
+        end
+
         Thread.current[:now_playing] = nil
       end
     end

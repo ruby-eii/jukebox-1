@@ -15,9 +15,9 @@ class Jukebox
 
   def initialize(songs, wallet=nil)
     @library = Library.new(songs)
-    @wallet = wallet || Wallet.new
-    @queue = SongQueue.new
-    @player = Player.new(@queue)
+    @wallet  = wallet || Wallet.new
+    @queue   = SongQueue.new
+    @player  = Player.new(@queue)
   end
 
   attr_reader :library, :player
@@ -30,7 +30,7 @@ class Jukebox
     @wallet.money
   end
 
-  def now_playing 
+  def now_playing
     @player.now_playing
   end
 
