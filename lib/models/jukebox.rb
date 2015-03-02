@@ -17,7 +17,6 @@ class Jukebox
     @library = Library.new(songs)
     @wallet  = wallet || Wallet.new
     @queue   = SongQueue.new
-    @player  = Player.new(@queue)
   end
 
   attr_reader :library, :player
@@ -31,7 +30,7 @@ class Jukebox
   end
 
   def now_playing
-    @player.now_playing
+    @queue.now_playing
   end
 
   def play(song)
