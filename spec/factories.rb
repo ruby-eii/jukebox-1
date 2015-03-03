@@ -17,6 +17,5 @@ FactoryGirl.define do
        "length" => length
       )
     }
-
   end
 end
