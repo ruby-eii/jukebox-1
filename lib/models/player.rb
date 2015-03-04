@@ -7,6 +7,7 @@ class Player
   def start_thread(queue)
     @thread = Thread.new do
       while true do
+        Kernel.sleep(1) # Just for not making a so aggresive loop
         song = queue.shift
 
         unless song.nil?
