@@ -19,3 +19,7 @@ You'll happily have a brand-new Vagrant box with all the workshop material alrea
 This software has been created exclusively for educational purposes.
 
 It's still under active development, so use it at your own perice and be happy about sharing that with us! :)
+
+## Resources
+
+* [Ruby Concepts Cheatsheet](http://www.pragtob.info/rails-beginner-cheatsheet/#ruby-concepts)
